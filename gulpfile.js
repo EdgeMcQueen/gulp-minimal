@@ -73,7 +73,7 @@ gulp.task('html', function(callback) {
 				}
 			})
 		}))
-		.pipe( gulp.dest('./dest/') )
+		.pipe( gulp.dest('./dist/') )
 		.pipe(browserSync.reload({ stream: true }))
 	callback();
 });
@@ -105,21 +105,21 @@ gulp.task('scss', function(callback) {
 // Такс Изображений
 gulp.task('copy:images', function(callback) {
 	return gulp.src('./src/images/**/*.*')
-	  .pipe(gulp.dest('./dest/images/'))
+	  .pipe(gulp.dest('./dist/images/'))
 	callback();
 });
 
 // Таск шрифтов
 gulp.task('copy:fonts', function(callback) {
 	return gulp.src('./src/fonts/**/*.*')
-	  .pipe(gulp.dest('./dest/fonts/'))
+	  .pipe(gulp.dest('./dist/fonts/'))
 	callback();
 });
 
 // Таск Скриптов
 gulp.task('copy:js', function(callback) {
 	return gulp.src('./src/js/**/*.*')
-	  .pipe(gulp.dest('./dest/js/'))
+	  .pipe(gulp.dest('./dist/js/'))
 	callback();
 });
 
@@ -153,13 +153,13 @@ gulp.task('watch', function() {
             host: devip(),
             notify: false,
             server: {
-                baseDir: "./dest/",
+                baseDir: "./dist/",
             }
         })
     });
 
     gulp.task('clean:build', function() {
-        return del('./dest')
+        return del('./dist')
     });
 
     // Дефолтный таск (задача по умолчанию)

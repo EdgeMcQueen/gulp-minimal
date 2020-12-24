@@ -1,0 +1,20 @@
+// Библиотека полезных функций:
+
+// переводим пиксели в ремы вызываем так: rem(18px);
+@function rem($px) {
+  @return ($px / 16) + rem;
+}
+// переводим пиксели в емы вызываем так: em(18px);
+@function em($px) {
+  @return ($px / 16) + em;
+}
+
+// переводим пиксели в пт вызываем так: pt(18px);
+@function pt($pt) {
+  @return (($pt * 1.333333) / 16) + rem;
+}
+
+@mixin el-margin($val) {
+  margin-left: $val;
+  margin-right: $val;
+}
